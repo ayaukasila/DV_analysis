@@ -5,12 +5,12 @@ global:
     monitor: 'student-monitoring'
 
 scrape_configs:
-  # --- Prometheus ---
+ 
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
 
-  # --- PostgreSQL ---
+  
   - job_name: 'postgresql'
     static_configs:
       - targets: ['postgres_exporter:9187']
@@ -18,8 +18,10 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: instance
         replacement: 'my_postgresql_db'
+  
 
-  # --- Node Exporter ---
+
+ 
   - job_name: 'node'
     static_configs:
       - targets: ['node_exporter:9100']
